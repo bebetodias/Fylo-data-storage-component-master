@@ -45,20 +45,20 @@ body {
   align-items: center;
   background: var(--very-dark-blue) url(../images/bg-desktop.png) no-repeat
     bottom center;
-  background-size: contain;
+  background-size: cover;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 1rem;
   align-items: end;
   position: relative;
 }
 
 .header {
   padding: 2.5rem;
-  width: 350px;
+  width: 85vw;
   border-radius: 1rem 100px 1rem 1rem;
   background-color: var(--dark-blue);
 }
@@ -84,8 +84,8 @@ main {
 }
 
 .storage {
-  padding: 2.5rem;
-  width: 540px;
+  padding: 2rem 2rem 3.375rem;
+  width: 100%;
   background: var(--dark-blue);
   color: var(--pale-blue);
   border-radius: 1rem;
@@ -127,22 +127,19 @@ main {
 
 .storageLeft {
   position: absolute;
-  top: 0;
-  right: 2.5rem;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  left: 50%;
   color: var(--greyish-blue);
   background-color: var(--white);
   padding: 0.875rem 1.75rem;
-  border-radius: 1rem 1rem 0;
-}
-
-.storageLeft::after {
-  content: "";
-  border: 0.875rem solid var(--white);
-  border-color: transparent var(--white) transparent transparent;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  transform: rotateZ(135deg) translateX(-1.25rem);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: max-content;
 }
 
 .storageLeft > span {
@@ -164,7 +161,38 @@ main {
 }
 
 @media screen and (min-width: 800px) {
+  body {
+    background-size: contain;
+  }
   main {
     flex-direction: row;
+    gap: 30px;
+  }
+
+  .header {
+    width: 350px;
+  }
+  .storage {
+    width: 540px;
+    padding: 2.5rem;
+  }
+
+  .storageLeft {
+    border-radius: 1rem 1rem 0;
+    top: 0;
+    right: 2.5rem;
+    bottom: unset;
+    left: unset;
+    transform: none;
+  }
+
+  .storageLeft::after {
+    content: "";
+    border: 0.875rem solid var(--white);
+    border-color: transparent var(--white) transparent transparent;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    transform: rotateZ(135deg) translateX(-1.25rem);
   }
 }
